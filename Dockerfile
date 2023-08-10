@@ -1,4 +1,4 @@
-FROM agners/archlinuxarm AS bootstrap
+FROM ghcr.io/fwcd/archlinuxarm-docker AS bootstrap
 
 WORKDIR /archlinux
 
