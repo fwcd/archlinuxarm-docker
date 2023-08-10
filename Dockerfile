@@ -1,4 +1,4 @@
-FROM agners/archlinuxarm-arm64v8
+FROM agners/archlinuxarm-arm64v8 AS bootstrap
 
 WORKDIR /archlinux
 
@@ -12,7 +12,7 @@ RUN ./pacstrap-docker /archlinux/rootfs base archlinuxarm-keyring
 RUN rm rootfs/var/lib/pacman/sync/*
 
 FROM scratch
-COPY --from=0 /archlinux/rootfs/ /
+COPY --from=bootstrap /archlinux/rootfs/ /
 COPY rootfs/ /
 
 ENV LANG=en_US.UTF-8
