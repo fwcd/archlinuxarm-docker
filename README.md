@@ -24,7 +24,7 @@ images small.
 
 ## Issues and improvements
 
-If you want to contribute, get to the [issues-section of this repository](https://github.com/agners/archlinuxarm-docker/issues).
+If you want to contribute, get to the [issues-section of this repository](https://github.com/fwcd/archlinuxarm-docker/issues).
 
 ## Common hurdles
 
