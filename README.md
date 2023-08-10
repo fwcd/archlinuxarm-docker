@@ -1,22 +1,20 @@
-# Basic Arch Linux ARM Docker images [![Build and Deploy](https://github.com/agners/archlinuxarm-docker/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/agners/archlinuxarm-docker/actions/workflows/build-deploy.yml)
+# Arch Linux ARM Docker images
 
-Docker images for Arch Linux ARM on AArch32 (ARMv7-A) and AArch64 (ARMv8-A). Built using native pacman and Docker multi-stage builds. Builds weekly by Travis CI on publicly visible infrastructure using Qemu emulation.
+[![Build and Deploy](https://github.com/fwcd/archlinuxarm-docker/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/fwcd/archlinuxarm-docker/actions/workflows/build-deploy.yml)
+
+Unofficial, automated Docker images for Arch Linux ARM on AArch32 (ARMv7-A) and AArch64 (ARMv8-A). Built using native pacman and Docker multi-stage builds. Builds daily by GitHub Actions on publicly visible infrastructure using QEMU emulation.
 
 ## Running the images
 
-The images are on [Docker Hub](https://hub.docker.com/u/agners/). Use the convenient `docker run`:
-
-    docker run --rm -ti agners/archlinuxarm
-
-Instead of using the multi-arch container above, you can also get the architecture specific image directly:
-
-    docker run --rm -ti agners/archlinuxarm-arm32v7
+```sh
+docker run --rm -ti ghcr.io/fwcd/archlinuxarm-docker
+```
 
 ## Tags
 
 |  Tag   |   Update   |  Type   |                                 Description                                        |
 |:------:|:----------:|:-------:|:-----------------------------------------------------------------------------------|
-| latest | **weekly** | minimal | minimal Arch Linux ARM with pacman support                                         |
+| latest | **daily**  | minimal | minimal Arch Linux ARM with pacman support                                         |
 
 ### Layer structure
 
@@ -35,7 +33,7 @@ If you want to contribute, get to the [issues-section of this repository](https:
 Simply add the `TZ` environment-variable and define it with a valid timezone-value.
 
 ```
-docker run -e TZ=Europe/Berlin agners/archlinuxarm
+docker run -e TZ=Europe/Berlin ghcr.io/fwcd/archlinuxarm-docker
 ```
 
 ## Building it yourself
@@ -46,12 +44,7 @@ docker run -e TZ=Europe/Berlin agners/archlinuxarm
 
 ### Building
 
-- Prepare binfmt use with Qemu user mode using `docker run --rm --privileged multiarch/qemu-user-static --reset -p yes`
-- Run `BUILD_ARCH=<arch> DOCKER_ORG=<your_docker_org> ./build` to build
-  - Use `BUILD_ARCH=arm32v7` for ARMv7 Aarch32
-  - Use `BUILD_ARCH=arm64v8` for ARMv8 Aarch64
-
-If you want to push the images, run `DOCKER_ORG=<your_docker_org> ./push`.
+See the [CI workflow](.github/workflows/build-deploy.yml).
 
 ### Building from scratch
 
@@ -71,6 +64,10 @@ docker import ArchLinuxARM-armv7-latest.tar agners/armv7-archlinux:latest
 Ideas have been taken from already existing Docker files for Arch Linux.
 However, this repository takes a slightly different approach to create images.
 
+- https://github.com/agners/archlinuxarm-docker
+  - The upstream project
+- https://github.com/danhunsaker/archlinuxarm-docker
+  - GitHub Actions fork
 - https://github.com/archlinux/archlinux-docker
   - Focus on Arch Linux for x86
   - Uses docker run in priviledged mode to build images
