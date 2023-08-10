@@ -6,8 +6,7 @@ RUN mkdir -p /archlinux/rootfs
 
 COPY pacstrap-docker /archlinux/
 
-RUN ./pacstrap-docker /archlinux/rootfs \
-	bash sed gzip pacman archlinuxarm-keyring
+RUN ./pacstrap-docker /archlinux/rootfs base archlinuxarm-keyring
 
 # Remove current pacman database, likely outdated very soon
 RUN rm rootfs/var/lib/pacman/sync/*
