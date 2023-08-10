@@ -34,7 +34,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Fetch date
         id: date
-        run: echo "DATE=$(date '%Y%m%d')" >> "$GITHUB_OUTPUT"
+        run: echo "DATE=$(date '+%Y%m%d')" >> "$GITHUB_OUTPUT"
       - name: Build and push image
         uses: docker/build-push-action@v4
         with:
