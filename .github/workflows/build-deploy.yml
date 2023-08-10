@@ -7,10 +7,10 @@ on:
   pull_request:
     branches:
       - main
-  schedule:
-    # Run daily at 7:30
-    - cron: '30 7 * * *'
   workflow_dispatch:
+  workflow_run:
+    workflows: ['Trigger Build']
+    types: [completed]
 
 permissions:
   contents: read
