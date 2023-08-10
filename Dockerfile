@@ -1,4 +1,4 @@
-FROM agners/archlinuxarm-${TARGETARCH}${TARGETVARIANT} AS bootstrap
+FROM agners/archlinuxarm AS bootstrap
 
 WORKDIR /archlinux
 
