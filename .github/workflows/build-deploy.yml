@@ -3,14 +3,13 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - master
       - main
   pull_request:
     branches:
-      - master
       - main
   schedule:
-    - cron: '0 0 * * 0' # Run weekly on Sunday at midnight
+    # Run daily at 7:30
+    - cron: '30 7 * * *'
   workflow_dispatch:
 
 jobs:
