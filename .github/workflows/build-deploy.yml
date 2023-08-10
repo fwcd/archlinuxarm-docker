@@ -22,7 +22,7 @@ jobs:
           - arm32v7
           - arm64v8
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Enable Docker experimental mode for image squashing
         if: github.actor != 'nektos/act'
         run: |
