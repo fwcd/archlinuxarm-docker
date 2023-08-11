@@ -6,6 +6,9 @@ on:
   - cron: '20 7 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   trigger-build:
     runs-on: ubuntu-latest
