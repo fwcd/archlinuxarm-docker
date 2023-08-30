@@ -1,3 +1,7 @@
+## Legacy repo, moved to [`docker-archlinux`](https://github.com/fwcd/docker-archlinux)
+
+---
+
 # Arch Linux ARM Docker images
 
 [![Build and Deploy](https://github.com/fwcd/archlinuxarm-docker/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/fwcd/archlinuxarm-docker/actions/workflows/build-deploy.yml)
